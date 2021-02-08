@@ -1,0 +1,5 @@
+numpy
+plotly
+ipywidgets
+voila
+ipykernel
