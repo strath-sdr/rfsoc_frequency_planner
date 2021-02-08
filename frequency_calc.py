@@ -32,7 +32,7 @@ class FrequencyPlannerADC:
         ax_x = self.__signal_f()
         ax_y = 6
         
-        return {'label': 'RX Band', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#1177FF'}
+        return {'label': 'RX Band', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#5a82ca'}
     
     def __hd(self, hd_num):
         fs_rf = self.fs_rf
@@ -48,7 +48,7 @@ class FrequencyPlannerADC:
         ax_x = self.__hd(hd_num)
         ax_y = hd_num
         
-        return {'label': 'HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#00fe35'}
+        return {'label': 'HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#ed7d31'}
     
     @property
     def hd3(self):
@@ -56,7 +56,7 @@ class FrequencyPlannerADC:
         ax_x = self.__hd(hd_num)
         ax_y = hd_num
         
-        return {'label': 'HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#6a76fc'}
+        return {'label': 'HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#a4a4a4'}
     
     @property
     def hd4(self):
@@ -64,7 +64,7 @@ class FrequencyPlannerADC:
         ax_x = self.__hd(hd_num)
         ax_y = hd_num
         
-        return {'label': 'HD4', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#ff9616'}
+        return {'label': 'HD4', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#febf00'}
     
     @property
     def hd5(self):
@@ -72,7 +72,7 @@ class FrequencyPlannerADC:
         ax_x = self.__hd(hd_num)
         ax_y = hd_num
         
-        return {'label': 'HD5', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#fed4c4'}
+        return {'label': 'HD5', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#5b9ad4'}
     
     @property
     def il_rx1(self):
@@ -87,7 +87,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in signal_f]
             
-        return {'label': 'IL RX1', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#22ffa7'}
+        return {'label': 'IL RX1', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#70ac47'}
     
     @property
     def il_rx2(self):
@@ -102,7 +102,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in signal_f]
             
-        return {'label': 'IL RX2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#bc7196'}
+        return {'label': 'IL RX2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#264478'}
     
     @property
     def il_rx3(self):
@@ -117,7 +117,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in signal_f]
             
-        return {'label': 'IL RX3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#e48f72'}
+        return {'label': 'IL RX3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#9d480e'}
     
     @property
     def il_rx4(self):
@@ -132,7 +132,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in signal_f]
             
-        return {'label': 'IL RX4', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#0df9ff'}
+        return {'label': 'IL RX4', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#636363'}
     
     @property
     def il_rx5(self):
@@ -147,7 +147,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in signal_f]
             
-        return {'label': 'IL RX5', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#eea6fb'}
+        return {'label': 'IL RX5', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#987300'}
     
     @property
     def fs8_p_hd3(self):
@@ -162,7 +162,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in hd3]
             
-        return {'label': 'FS/8+HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#6a76fc'}
+        return {'label': 'FS/8+HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#d16012'}
     
     @property
     def fs8_m_hd3(self):
@@ -177,7 +177,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in hd3]
             
-        return {'label': 'FS/8-HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#6a76fc'}
+        return {'label': 'FS/8-HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#335aa0'}
     
     @property
     def fs8_p_hd2(self):
@@ -192,7 +192,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in hd2]
             
-        return {'label': 'FS/8+HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#00fe35'}
+        return {'label': 'FS/8+HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#8bc068'}
     
     @property
     def fs8_m_hd2(self):
@@ -207,7 +207,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in hd2]
             
-        return {'label': 'FS/8-HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#00fe35'}
+        return {'label': 'FS/8-HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#7caedc'}
     
     @property
     def fs4_p_hd3(self):
@@ -222,7 +222,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in hd3]
             
-        return {'label': 'FS/4+HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#6a76fc'}
+        return {'label': 'FS/4+HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#fecc33'}
     
     @property
     def fs4_m_hd3(self):
@@ -237,7 +237,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in hd3]
             
-        return {'label': 'FS/4-HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#6a76fc'}
+        return {'label': 'FS/4-HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#b6b6b6'}
     
     @property
     def fs4_p_hd2(self):
@@ -252,7 +252,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = [i*0 for i in hd2]
             
-        return {'label': 'FS/4+HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#00fe35'}
+        return {'label': 'FS/4+HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#698dcf'}
     
     @property
     def fs4_m_hd2(self):
@@ -282,7 +282,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = fs2_m_hd3 = [i*0 for i in hd3]
             
-        return {'label': 'FS/2-HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#6a76fc'}
+        return {'label': 'FS/2-HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#f0965a'}
     
     @property
     def fs2_m_hd2(self):
@@ -297,7 +297,7 @@ class FrequencyPlannerADC:
         else:
             ax_x = fs2_m_hd3 = [i*0 for i in hd2]
             
-        return {'label': 'FS/2-HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#00fe35'}
+        return {'label': 'FS/2-HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#255e90'}
 
 
     @property
@@ -311,7 +311,7 @@ class FrequencyPlannerADC:
         ax_y = 4.5
         ax_x = [fs_rf - ((fc+fs_bw*i+pll_ref) % fs_rf) if ((fc+fs_bw*i+pll_ref) % fs_rf) >= fs_rf/2 else ((fc+fs_bw*i+pll_ref) % fs_rf) for i in f]
         
-        return {'label': 'PLL Mix Up', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#f6f926'}
+        return {'label': 'PLL Mix Up', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#CB9900'}
     
     @property
     def pll_mix_down(self):
@@ -324,14 +324,14 @@ class FrequencyPlannerADC:
         ax_y = 4.5
         ax_x = [fs_rf - ((fc+fs_bw*i-pll_ref) % fs_rf) if ((fc+fs_bw*i-pll_ref) % fs_rf) >= fs_rf/2 else ((fc+fs_bw*i-pll_ref) % fs_rf) for i in f]
         
-        return {'label': 'PLL Mix Down', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#479b55'}
+        return {'label': 'PLL Mix Down', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin': 0, 'ymax':ax_y, 'color':'#327dc1'}
     
     @property
     def nyquist(self):
         ax_x = self.fs_rf/2
         ax_y = 6
         
-        return {'label': 'Nyquist', 'xmin':ax_x, 'xmax':ax_x, 'ymin': 0, 'ymax':ax_y, 'color':'#6e899c'}
+        return {'label': 'Nyquist', 'xmin':ax_x, 'xmax':ax_x, 'ymin': 0, 'ymax':ax_y, 'color':'#838383'}
     
     @property
     def calibration_mode(self):
@@ -366,21 +366,21 @@ class FrequencyPlannerDAC:
         ax_x = self.__signal_f()
         ax_y = 8
         
-        return {'label':'TX Band', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#1177FF', 'linestyle':'solid'}
+        return {'label':'TX Band', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#5a82ca', 'linestyle':'solid'}
     
     @property
     def nyquist(self):
         ax_x = self.fs_rf/2
         ax_y = 8
         
-        return {'label':'Nyquist', 'xmin':ax_x, 'xmax':ax_x, 'ymin':0, 'ymax':ax_y, 'color':'#6e899c', 'linestyle':'solid'}
+        return {'label':'Nyquist 1', 'xmin':ax_x, 'xmax':ax_x, 'ymin':0, 'ymax':ax_y, 'color':'#838383', 'linestyle':'solid'}
     
     @property
     def nyquist_image(self):
         ax_x = self.fs_rf
         ax_y = 8
         
-        return {'label':'Nyquist 2', 'xmin':ax_x, 'xmax':ax_x, 'ymin':0, 'ymax':ax_y, 'color':'#917663', 'linestyle':'solid'}
+        return {'label':'Nyquist 2', 'xmin':ax_x, 'xmax':ax_x, 'ymin':0, 'ymax':ax_y, 'color':'#494949', 'linestyle':'solid'}
     
     def __hd_nyq1(self, hd_num):
         nyq_rf = self.fs_rf/2
@@ -404,7 +404,7 @@ class FrequencyPlannerDAC:
         ax_x = self.__hd_nyq1(hd_num)
         ax_y = hd_num
         
-        return {'label':'HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#00fe35', 'linestyle':'solid'}
+        return {'label':'HD2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#ed7d31', 'linestyle':'solid'}
     
     @property
     def hd3_nyq1(self):
@@ -412,7 +412,7 @@ class FrequencyPlannerDAC:
         ax_x = self.__hd_nyq1(hd_num)
         ax_y = hd_num
         
-        return {'label':'HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#6a76fc', 'linestyle':'solid'}
+        return {'label':'HD3', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#a4a4a4', 'linestyle':'solid'}
     
     @property
     def hd4_nyq1(self):
@@ -420,7 +420,7 @@ class FrequencyPlannerDAC:
         ax_x = self.__hd_nyq1(hd_num)
         ax_y = hd_num
         
-        return {'label':'HD4', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#ff9616', 'linestyle':'solid'}
+        return {'label':'HD4', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#febf00', 'linestyle':'solid'}
     
     @property
     def hd5_nyq1(self):
@@ -428,7 +428,7 @@ class FrequencyPlannerDAC:
         ax_x = self.__hd_nyq1(hd_num)
         ax_y = hd_num
         
-        return {'label':'HD5', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#fed4c4', 'linestyle':'solid'}
+        return {'label':'HD5', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#5b9ad4', 'linestyle':'solid'}
     
     @property
     def hd2_nyq2(self):
@@ -436,7 +436,7 @@ class FrequencyPlannerDAC:
         ax_x = self.__hd_nyq2(hd_num)
         ax_y = hd_num
         
-        return {'label':'HD2 Nyq2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#FF01CA', 'linestyle':'solid'}
+        return {'label':'HD2 Image', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#70ad47', 'linestyle':'solid'}
     
     @property
     def hd3_nyq2(self):
@@ -444,7 +444,7 @@ class FrequencyPlannerDAC:
         ax_x = self.__hd_nyq2(hd_num)
         ax_y = hd_num
         
-        return {'label':'HD3 Nyq2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#958903', 'linestyle':'solid'}
+        return {'label':'HD3 Image', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#264478', 'linestyle':'solid'}
     
     @property
     def hd4_nyq2(self):
@@ -452,7 +452,7 @@ class FrequencyPlannerDAC:
         ax_x = self.__hd_nyq2(hd_num)
         ax_y = hd_num
         
-        return {'label':'HD4 Nyq2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#0069E9', 'linestyle':'solid'}
+        return {'label':'HD4 Image', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#9e480e', 'linestyle':'solid'}
     
     @property
     def hd5_nyq2(self):
@@ -460,7 +460,7 @@ class FrequencyPlannerDAC:
         ax_x = self.__hd_nyq2(hd_num)
         ax_y = hd_num
         
-        return {'label':'HD5 Nyq2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#0069E9', 'linestyle':'solid'}
+        return {'label':'HD5 Image', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#636363', 'linestyle':'solid'}
     
     def __fimg(self):
         signal_f = self.__signal_f()
@@ -475,7 +475,7 @@ class FrequencyPlannerDAC:
         ax_x = self.__fimg()
         ax_y = 8
         
-        return {'label':'Tx Band Nyq2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#EE8800', 'linestyle':'solid'}
+        return {'label':'Tx Band Image', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#c46728', 'linestyle':'solid'}
     
     @property
     def pll_mix_up(self):
@@ -484,7 +484,7 @@ class FrequencyPlannerDAC:
         ax_x = [(i + self.pll_ref) for i in signal_f]
         ax_y = 6.5
         
-        return {'label':'PLL Mix Up', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#f6f926', 'linestyle':'solid'}
+        return {'label':'PLL Mix Up', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#CB9900', 'linestyle':'solid'}
     
     @property
     def pll_mix_up_image(self):
@@ -493,7 +493,7 @@ class FrequencyPlannerDAC:
         ax_x = [(i + self.pll_ref) for i in fimag]
         ax_y = 6.5
         
-        return {'label':'PLL Mix Up Nyq2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#0906D9', 'linestyle':'solid'}
+        return {'label':'PLL Mix Up Image', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#b1bcdf', 'linestyle':'solid'}
     
     @property
     def pll_mix_down(self):
@@ -502,7 +502,7 @@ class FrequencyPlannerDAC:
         ax_x = [abs(i - self.pll_ref) for i in signal_f]
         ax_y = 6.5
         
-        return {'label':'PLL Mix Down', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#479b55', 'linestyle':'solid'}
+        return {'label':'PLL Mix Down', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#327dc1', 'linestyle':'solid'}
     
     @property
     def pll_mix_down_image(self):
@@ -511,7 +511,7 @@ class FrequencyPlannerDAC:
         ax_x = [abs(i - self.pll_ref) for i in fimg]
         ax_y = 6.5
         
-        return {'label':'PLL Mix Down Nyq2', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#B864AA', 'linestyle':'solid'}
+        return {'label':'PLL Mix Down Image', 'xmin':min(ax_x), 'xmax':max(ax_x), 'ymin':0, 'ymax':ax_y, 'color':'#f2b7a3', 'linestyle':'solid'}
     
     @property
     def mix_mode(self):
@@ -573,7 +573,7 @@ class FrequencyPlannerDDC:
         ax_x = (nco_shift - (nco_shift - fs_rf/dec/2)//(fs_rf/dec) * (fs_rf/dec)) if nco_shift < 0 else (nco_shift - (nco_shift + fs_rf/dec/2)//(fs_rf/dec)*(fs_rf/dec)) #BK16
         ax_y = 0
         
-        return {'label':'Fc', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#1177FF', 'linestyle':'solid'}
+        return {'label':'Fc', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#5a82ca', 'linestyle':'solid'}
     
     @property
     def rx_image(self):
@@ -589,7 +589,7 @@ class FrequencyPlannerDDC:
         ax_x = (nco_shift - ((nco_shift - fs_rf/dec/2)//(fs_rf/dec) * fs_rf/dec)) if (nco_shift < 0) else (nco_shift - ((nco_shift + fs_rf/dec/2)//(fs_rf/dec) * fs_rf/dec)) #BL16
         ax_y = 0
         
-        return {'label':'Fc Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#EE8800', 'linestyle':'solid'}
+        return {'label':'Fc Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#c46728', 'linestyle':'solid'}
     
     def __hd(self, hd_num):
         fs_rf = self.fs_rf
@@ -622,27 +622,27 @@ class FrequencyPlannerDDC:
     def hd2(self):
         ax_x = self.__hd(2)
         ax_y = -self.hd2_db
-        return {'label':'HD2', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#00fe35', 'linestyle':'solid'}
+        return {'label':'HD2', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#ed7d31', 'linestyle':'solid'}
     
     @property
     def hd2_image(self):
         ax_x = self.__hd_image(2)
         ax_y = -self.hd2_db
-        return {'label':'HD2 Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#FF01CA', 'linestyle':'solid'}
+        return {'label':'HD2 Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#70ad47', 'linestyle':'solid'}
     
     @property
     def hd3(self):
         ax_x = self.__hd(3)
         ax_y = -self.hd3_db
         
-        return {'label':'HD3', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#6a76fc', 'linestyle':'solid'}
+        return {'label':'HD3', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#a4a4a4', 'linestyle':'solid'}
     
     @property
     def hd3_image(self):
         ax_x = self.__hd_image(3)
         ax_y = -self.hd3_db
         
-        return {'label':'HD3 Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#958903', 'linestyle':'solid'}
+        return {'label':'HD3 Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#264478', 'linestyle':'solid'}
     
     @property
     def offset_spur(self):
@@ -665,7 +665,7 @@ class FrequencyPlannerDDC:
         else: 
             ax_x = -fs_rf/dec/2
             
-        return {'label':'Offset Spur', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#bc7196', 'linestyle':'solid'}
+        return {'label':'Offset Spur', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#669645', 'linestyle':'solid'}
     
     @property
     def offset_spur_image(self):
@@ -690,7 +690,7 @@ class FrequencyPlannerDDC:
         else: 
             ax_x = -fs_rf/dec/2
             
-        return {'label':'Offset Spur Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#438E69', 'linestyle':'solid'}
+        return {'label':'Offset Spur Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#ed7d31', 'linestyle':'solid'}
     
     @property
     def tis_spur(self):
@@ -725,7 +725,7 @@ class FrequencyPlannerDDC:
         else:
             ax_x = -fs_rf/dec/2
             
-        return {'label':'TI Spur', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#E48F72', 'linestyle':'solid'}
+        return {'label':'TI Spur', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#a5a5a5', 'linestyle':'solid'}
     
     @property
     def tis_spur_image(self):
@@ -762,7 +762,7 @@ class FrequencyPlannerDDC:
         else:
             ax_x = -fs_rf/dec/2
             
-        return {'label':'TI Spur Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#1B708D', 'linestyle':'solid'}
+        return {'label':'TI Spur Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#ffc000', 'linestyle':'solid'}
     
     @property
     def pll_mix_up(self):
@@ -778,7 +778,7 @@ class FrequencyPlannerDDC:
         ax_x = (nco_shift - (nco_shift-(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - (nco_shift+(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) #BK35
         ax_y = -self.pll_mix_db
         
-        return {'label':'PLL Mix Up', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#f6f926', 'linestyle':'solid'}
+        return {'label':'PLL Mix Up', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#CB9900', 'linestyle':'solid'}
     
     @property
     def pll_mix_up_image(self):
@@ -795,7 +795,7 @@ class FrequencyPlannerDDC:
         ax_x = (nco_shift - (nco_shift-(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - (nco_shift+(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) #BK35
         ax_y = -self.pll_mix_db
         
-        return {'label':'PLL Mix Up Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#0906D9', 'linestyle':'#0906D9'}
+        return {'label':'PLL Mix Up Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#b1bcdf', 'linestyle':'#0906D9'}
     
     @property
     def pll_mix_down(self):
@@ -811,7 +811,7 @@ class FrequencyPlannerDDC:
         ax_x = (nco_shift - (nco_shift-(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - (nco_shift+(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) #BK35
         ax_y = -self.pll_mix_db
         
-        return {'label':'PLL Mix Down', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#479b55', 'linestyle':'solid'}
+        return {'label':'PLL Mix Down', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#327dc1', 'linestyle':'solid'}
     
     @property
     def pll_mix_down_image(self):
@@ -828,21 +828,21 @@ class FrequencyPlannerDDC:
         ax_x = (nco_shift - (nco_shift-(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - (nco_shift+(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) #BK35
         ax_y = -self.pll_mix_db
         
-        return {'label':'PLL Mix Down Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#B864AA', 'linestyle':'solid'}
+        return {'label':'PLL Mix Down Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#f2b7a3', 'linestyle':'solid'}
     
     @property
     def nyquist_up(self):
         ax_x = self.fs_rf/self.dec/2
         ax_y = 0
         
-        return {'label':'Nyquist', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#6e899c', 'linestyle':'solid'}
+        return {'label':'Nyquist 1', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#838383', 'linestyle':'solid'}
     
     @property
     def nyquist_down(self):
         ax_x = -self.fs_rf/self.dec/2
         ax_y = 0
         
-        return {'label':'Nyquist 2', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#917663', 'linestyle':'dashed'}
+        return {'label':'Nyquist 2', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#494949', 'linestyle':'dashed'}
 
 class FrequencyPlannerDUC:
     def __init__(self, fs_rf=4096, fc=1024, nco=100, interp_rate=1, inv_sinc=True, hd2_db=65, hd3_db=75, pll_db=72, pll_ref=500):
@@ -885,14 +885,14 @@ class FrequencyPlannerDUC:
     def nyquist_up(self):
         ax_x = self.fs_rf/2
         ax_y = 0
-        return {'label':'Nyquist 1', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#6e899c', 'linestyle':'dashdot'}
+        return {'label':'Nyquist 1', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#838383', 'linestyle':'dashdot'}
     
     @property
     def nyquist_down(self):
         ax_x = self.fs_rf
         ax_y = 0
         
-        return {'label':'Nyquist 2', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#917663', 'linestyle':'dashed'}
+        return {'label':'Nyquist 2', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#494949', 'linestyle':'dashed'}
     
     def __hd(self, hd_num):
         nyq_rf = self.fs_rf/2
@@ -912,7 +912,7 @@ class FrequencyPlannerDUC:
         ax_x = self.__hd(2)
         ax_y = freq_resp - hd2_db
         
-        return {'label':'HD2', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#00fe35', 'linestyle':'solid'}
+        return {'label':'HD2', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#ed7d31', 'linestyle':'solid'}
     
     @property
     def hd3(self):
@@ -922,7 +922,7 @@ class FrequencyPlannerDUC:
         ax_x = self.__hd(3)
         ax_y = freq_resp - hd3_db
         
-        return {'label':'HD3', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#6a76fc', 'linestyle':'solid'}
+        return {'label':'HD3', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#a4a4a4', 'linestyle':'solid'}
     
     @property
     def hd2_image(self):
@@ -933,7 +933,7 @@ class FrequencyPlannerDUC:
         ax_x = 2*nyq_rf - self.__hd(2)
         ax_y = freq_resp - hd2_db
         
-        return {'label':'HD2 Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#FF01CA', 'linestyle':'solid'}
+        return {'label':'HD2 Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#70ad47', 'linestyle':'solid'}
     
     @property
     def hd3_image(self): # this is different than Xilinx (CN51)
@@ -944,7 +944,7 @@ class FrequencyPlannerDUC:
         ax_x = 2*nyq_rf - self.__hd(3)
         ax_y = freq_resp - hd3_db
         
-        return {'label':'HD3 Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#958903', 'linestyle':'solid'}
+        return {'label':'HD3 Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#264478', 'linestyle':'solid'}
     
     @property
     def pll_mix_up(self):
@@ -957,7 +957,7 @@ class FrequencyPlannerDUC:
         ax_x = (fc+nco) - pll_ref
         ax_y = freq_resp - pll_db
         
-        return {'label':'PLL Mix Up', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#f6f926', 'linestyle':'solid'}
+        return {'label':'PLL Mix Up', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#CB9900', 'linestyle':'solid'}
     
     @property
     def pll_mix_down(self):
@@ -970,7 +970,7 @@ class FrequencyPlannerDUC:
         ax_x = (fc+nco) + pll_ref
         ax_y = freq_resp - pll_db
         
-        return {'label':'PLL Mix Down', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#479b55', 'linestyle':'solid'}
+        return {'label':'PLL Mix Down', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#327dc1', 'linestyle':'solid'}
     
     @property
     def pll_mix_up_image(self):
@@ -985,7 +985,7 @@ class FrequencyPlannerDUC:
         ax_x = fimg - pll_ref
         ax_y = freq_resp - pll_db
         
-        return {'label':'PLL Mix Up Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#0906D9', 'linestyle':'solid'}
+        return {'label':'PLL Mix Up Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#b1bcdf', 'linestyle':'solid'}
     
     @property
     def pll_mix_down_image(self):
@@ -1001,14 +1001,14 @@ class FrequencyPlannerDUC:
         ax_x = fimg + pll_ref
         ax_y = freq_resp - pll_db
         
-        return {'label':'PLL Mix Down Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#B864AA', 'linestyle':'solid'}
+        return {'label':'PLL Mix Down Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#f2b7a3', 'linestyle':'solid'}
     
     @property
     def fund(self):
         ax_x = self.fc + self.nco
         ax_y = self.__get_freq_resp()
         
-        return {'label':'Tx', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#1177FF', 'linestyle':'solid'}
+        return {'label':'Fc', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#5a82ca', 'linestyle':'solid'}
     
     @property
     def fimag(self):
@@ -1019,7 +1019,7 @@ class FrequencyPlannerDUC:
         ax_x = (2*nyq_rf - (fc+nco)) if (np.floor((fc+nco)/nyq_rf)%2 == 0) else (nyq_rf - ((fc+nco)%nyq_rf))
         ax_y = self.__get_freq_resp()
         
-        return {'label':'Tx Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#EE8800', 'linestyle':'solid'}
+        return {'label':'Fc Image', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#c46728', 'linestyle':'solid'}
        
     @property
     def mix_mode(self):

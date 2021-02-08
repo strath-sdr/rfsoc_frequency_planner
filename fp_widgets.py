@@ -90,7 +90,7 @@ class ADCWidgets:
     def __update_plot(self):
         spurs_list = [self.data.hd2, self.data.hd3, self.data.hd4, self.data.hd5,
                      self.data.il_rx1, self.data.il_rx2, self.data.il_rx3, self.data.il_rx4, self.data.il_rx5,
-                     self.data.fs8_p_hd3, self.data.fs8_m_hd3, self.data.fs8_p_hd2, self.data.fs8_m_hd2, self.data.fs4_p_hd3, self.data.fs4_m_hd3, self.data.fs4_p_hd2, self.data.fs4_m_hd2, self.data.fs2_m_hd3, self.data.fs2_m_hd2,
+                     self.data.fs2_m_hd2, self.data.fs4_m_hd2, self.data.fs4_p_hd2, self.data.fs2_m_hd3, self.data.fs4_m_hd3, self.data.fs4_p_hd3, self.data.fs8_m_hd2, self.data.fs8_p_hd2, self.data.fs8_m_hd3, self.data.fs8_p_hd3,        
                      self.data.pll_mix_up, self.data.pll_mix_down]
         
         
@@ -119,11 +119,11 @@ class ADCWidgets:
         rx_band = go.Scatter(x=[self.data.rx_band['xmin'], self.data.rx_band['xmax']], y=[self.data.rx_band['ymax'], self.data.rx_band['ymax']], line=dict(color=self.data.rx_band['color']), name=self.data.rx_band['label'], legendgroup="rx", hovertext=self.data.rx_band['label'], hoverinfo='text+x')
         rx_band_l = go.Scatter(x=[self.data.rx_band['xmin'], self.data.rx_band['xmin']], y=[self.data.rx_band['ymin'], self.data.rx_band['ymax']], line=dict(color=self.data.rx_band['color']), name=self.data.rx_band['label'], showlegend=False, legendgroup="rx", hovertext=self.data.rx_band['label'], hoverinfo='text+x')
         rx_band_r = go.Scatter(x=[self.data.rx_band['xmax'], self.data.rx_band['xmax']], y=[self.data.rx_band['ymin'], self.data.rx_band['ymax']], line=dict(color=self.data.rx_band['color']), name=self.data.rx_band['label'], showlegend=False, legendgroup="rx", hovertext=self.data.rx_band['label'], hoverinfo='text+x')
-        nyq = go.Scatter(x=[self.data.nyquist['xmin'], self.data.nyquist['xmin']], y=[self.data.nyquist['ymin'], self.data.nyquist['ymax']], line=dict(color=self.data.rx_band['color']), name=self.data.nyquist['label'], hovertext=self.data.nyquist['label'], hoverinfo='text+x')
+        nyq = go.Scatter(x=[self.data.nyquist['xmin'], self.data.nyquist['xmin']], y=[self.data.nyquist['ymin'], self.data.nyquist['ymax']], line=dict(color=self.data.nyquist['color']), name=self.data.nyquist['label'], hovertext=self.data.nyquist['label'], hoverinfo='text+x')
 
         spurs_list = [self.data.hd2, self.data.hd3, self.data.hd4, self.data.hd5,
                      self.data.il_rx1, self.data.il_rx2, self.data.il_rx3, self.data.il_rx4, self.data.il_rx5,
-                     self.data.fs8_p_hd3, self.data.fs8_m_hd3, self.data.fs8_p_hd2, self.data.fs8_m_hd2, self.data.fs4_p_hd3, self.data.fs4_m_hd3, self.data.fs4_p_hd2, self.data.fs4_m_hd2, self.data.fs2_m_hd3, self.data.fs2_m_hd2,
+                     self.data.fs2_m_hd2, self.data.fs4_m_hd2, self.data.fs4_p_hd2, self.data.fs2_m_hd3, self.data.fs4_m_hd3, self.data.fs4_p_hd3, self.data.fs8_m_hd2, self.data.fs8_p_hd2, self.data.fs8_m_hd3, self.data.fs8_p_hd3,        
                      self.data.pll_mix_up, self.data.pll_mix_down]
         
         spurs = [go.Scatter(x=[d['xmin'], d['xmax']], y=[d['ymax'], d['ymax']], name=d['label'], hovertext=d['label'], hoverinfo='text+x', line=dict(color=d['color'])) for d in spurs_list]
@@ -217,8 +217,8 @@ class DACWidgets:
         self.__update_plot()
         
     def __update_plot(self):
-        spurs_list = [self.data.hd2_nyq1,self.data.hd3_nyq1,self.data.hd4_nyq1,self.data.hd5_nyq1,
-                      self.data.hd2_nyq2,self.data.hd3_nyq2,self.data.hd4_nyq2,self.data.hd5_nyq2,
+        spurs_list = [self.data.hd2_nyq1,self.data.hd2_nyq2,self.data.hd3_nyq1,self.data.hd3_nyq2,
+                      self.data.hd4_nyq1,self.data.hd4_nyq2,self.data.hd5_nyq1,self.data.hd5_nyq2,
                       self.data.pll_mix_up,self.data.pll_mix_up_image,
                       self.data.pll_mix_down,self.data.pll_mix_down_image]
         
@@ -237,27 +237,31 @@ class DACWidgets:
             
             for i in range(len(spurs_list)):
                 self._plot.data[i+8].x = [spurs_list[i]['xmin'], spurs_list[i]['xmax']]
+                if self.__intersection(spurs_list[i], self.data.tx_band) or self.__intersection(spurs_list[i], self.data.fimg):
+                    self._plot.data[i+8].line['color'] = 'red'
+                else:
+                    self._plot.data[i+8].line['color'] = spurs_list[i]['color']
                 
         self.mix_mode.value = self.data.mix_mode
             
     def __setup_plot(self):
-        tx_band = go.Scatter(x=[self.data.tx_band['xmin'], self.data.tx_band['xmax']], y=[self.data.tx_band['ymax'], self.data.tx_band['ymax']], line=dict(color='red'), name=self.data.tx_band['label'], legendgroup="tx", hovertext=self.data.tx_band['label'], hoverinfo='text+x')
-        tx_band_l = go.Scatter(x=[self.data.tx_band['xmin'], self.data.tx_band['xmin']], y=[self.data.tx_band['ymin'], self.data.tx_band['ymax']], line=dict(color='red'), name=self.data.tx_band['label'], showlegend=False, legendgroup="tx", hovertext=self.data.tx_band['label'], hoverinfo='text+x')
-        tx_band_r = go.Scatter(x=[self.data.tx_band['xmax'], self.data.tx_band['xmax']], y=[self.data.tx_band['ymin'], self.data.tx_band['ymax']], line=dict(color='red'), name=self.data.tx_band['label'], showlegend=False, legendgroup="tx", hovertext=self.data.tx_band['label'], hoverinfo='text+x')
-
-        fimag = go.Scatter(x=[self.data.fimg['xmin'], self.data.fimg['xmax']], y=[self.data.fimg['ymax'], self.data.fimg['ymax']], line=dict(color='blue'), name=self.data.fimg['label'], legendgroup="fimg", hovertext=self.data.fimg['label'], hoverinfo='text+x')
-        fimag_l = go.Scatter(x=[self.data.fimg['xmin'], self.data.fimg['xmin']], y=[self.data.fimg['ymin'], self.data.fimg['ymax']], line=dict(color='blue'), name=self.data.fimg['label'], showlegend=False, legendgroup="fimg", hovertext=self.data.fimg['label'], hoverinfo='text+x')
-        fimag_r = go.Scatter(x=[self.data.fimg['xmax'], self.data.fimg['xmax']], y=[self.data.fimg['ymin'], self.data.fimg['ymax']], line=dict(color='blue'), name=self.data.fimg['label'], showlegend=False, legendgroup="fimg", hovertext=self.data.fimg['label'], hoverinfo='text+x')
-
-        nyq = go.Scatter(x=[self.data.nyquist['xmin'], self.data.nyquist['xmin']], y=[self.data.nyquist['ymin'], self.data.nyquist['ymax']], line=dict(color='grey'), name=self.data.nyquist['label'], hovertext=self.data.nyquist['label'], hoverinfo='text+x')
-        nyq_img = go.Scatter(x=[self.data.nyquist_image['xmin'], self.data.nyquist_image['xmin']], y=[self.data.nyquist_image['ymin'], self.data.nyquist_image['ymax']], line=dict(color='green'), name=self.data.nyquist_image['label'], hovertext=self.data.nyquist_image['label'], hoverinfo='text+x')
+        tx_band = go.Scatter(x=[self.data.tx_band['xmin'], self.data.tx_band['xmax']], y=[self.data.tx_band['ymax'], self.data.tx_band['ymax']], line=dict(color=self.data.tx_band['color']), name=self.data.tx_band['label'], legendgroup="tx", hovertext=self.data.tx_band['label'], hoverinfo='text+x')
+        tx_band_l = go.Scatter(x=[self.data.tx_band['xmin'], self.data.tx_band['xmin']], y=[self.data.tx_band['ymin'], self.data.tx_band['ymax']], line=dict(color=self.data.tx_band['color']), name=self.data.tx_band['label'], showlegend=False, legendgroup="tx", hovertext=self.data.tx_band['label'], hoverinfo='text+x')
+        tx_band_r = go.Scatter(x=[self.data.tx_band['xmax'], self.data.tx_band['xmax']], y=[self.data.tx_band['ymin'], self.data.tx_band['ymax']], line=dict(color=self.data.tx_band['color']), name=self.data.tx_band['label'], showlegend=False, legendgroup="tx", hovertext=self.data.tx_band['label'], hoverinfo='text+x')
         
-        spurs_list = [self.data.hd2_nyq1,self.data.hd3_nyq1,self.data.hd4_nyq1,self.data.hd5_nyq1,
-                      self.data.hd2_nyq2,self.data.hd3_nyq2,self.data.hd4_nyq2,self.data.hd5_nyq2,
+        fimag = go.Scatter(x=[self.data.fimg['xmin'], self.data.fimg['xmax']], y=[self.data.fimg['ymax'], self.data.fimg['ymax']], line=dict(color=self.data.fimg['color']), name=self.data.fimg['label'], legendgroup="fimg", hovertext=self.data.fimg['label'], hoverinfo='text+x')
+        fimag_l = go.Scatter(x=[self.data.fimg['xmin'], self.data.fimg['xmin']], y=[self.data.fimg['ymin'], self.data.fimg['ymax']], line=dict(color=self.data.fimg['color']), name=self.data.fimg['label'], showlegend=False, legendgroup="fimg", hovertext=self.data.fimg['label'], hoverinfo='text+x')
+        fimag_r = go.Scatter(x=[self.data.fimg['xmax'], self.data.fimg['xmax']], y=[self.data.fimg['ymin'], self.data.fimg['ymax']], line=dict(color=self.data.fimg['color']), name=self.data.fimg['label'], showlegend=False, legendgroup="fimg", hovertext=self.data.fimg['label'], hoverinfo='text+x')
+
+        nyq = go.Scatter(x=[self.data.nyquist['xmin'], self.data.nyquist['xmin']], y=[self.data.nyquist['ymin'], self.data.nyquist['ymax']], line=dict(color=self.data.nyquist['color']), name=self.data.nyquist['label'], hovertext=self.data.nyquist['label'], hoverinfo='text+x')
+        nyq_img = go.Scatter(x=[self.data.nyquist_image['xmin'], self.data.nyquist_image['xmin']], y=[self.data.nyquist_image['ymin'], self.data.nyquist_image['ymax']], line=dict(color=self.data.nyquist_image['color']), name=self.data.nyquist_image['label'], hovertext=self.data.nyquist_image['label'], hoverinfo='text+x')  
+
+        spurs_list = [self.data.hd2_nyq1,self.data.hd2_nyq2,self.data.hd3_nyq1,self.data.hd3_nyq2,
+                      self.data.hd4_nyq1,self.data.hd4_nyq2,self.data.hd5_nyq1,self.data.hd5_nyq2,
                       self.data.pll_mix_up,self.data.pll_mix_up_image,
                       self.data.pll_mix_down,self.data.pll_mix_down_image]
-
-        spurs = [go.Scatter(x=[d['xmin'], d['xmax']], y=[d['ymax'], d['ymax']], name=d['label'], hovertext=d['label'], hoverinfo='text+x') for d in spurs_list]
+        
+        spurs = [go.Scatter(x=[d['xmin'], d['xmax']], y=[d['ymax'], d['ymax']], name=d['label'], line=dict(color=d['color']), hovertext=d['label'], hoverinfo='text+x') for d in spurs_list]
         
         plot_items = [tx_band, tx_band_l, tx_band_r, fimag, fimag_l, fimag_r, nyq, nyq_img] + spurs
         plot = go.FigureWidget(plot_items)
@@ -271,6 +275,12 @@ class DACWidgets:
         )
 
         return plot
+    
+    def __intersection(self, a, b):
+        if ((a['xmin'] < b['xmax']) and (a['xmax'] < b['xmin'])) or ((a['xmin'] > b['xmax']) and (a['xmax'] > b['xmin'])):
+            return False
+        else:
+            return True
 
 class DDCWidgets:
     def __init__(self):
@@ -439,12 +449,12 @@ class DDCWidgets:
         self.__update_plot()
         
     def __setup_plot(self):      
-        spurs_list = [self.data.nyquist_up, self.data.nyquist_down, self.data.hd2, self.data.hd2_image, 
-                     self.data.hd3, self.data.hd3_image, self.data.pll_mix_up, self.data.pll_mix_up_image,
-                     self.data.pll_mix_down, self.data.pll_mix_down_image, self.data.rx_image, self.data.rx_alias,
-                    self.data.tis_spur, self.data.tis_spur_image, self.data.offset_spur, self.data.offset_spur_image]
+        spurs_list = [self.data.rx_alias, self.data.rx_image, self.data.nyquist_up, self.data.nyquist_down,
+                      self.data.hd2, self.data.hd2_image, self.data.hd3, self.data.hd3_image,
+                      self.data.pll_mix_up, self.data.pll_mix_up_image, self.data.pll_mix_down, self.data.pll_mix_down_image,
+                      self.data.tis_spur, self.data.tis_spur_image, self.data.offset_spur, self.data.offset_spur_image]
 
-        plot_items = [go.Scatter(x=[d['x'], d['x']], y=[d['ymin'], d['ymax']], name=d['label'], hovertext=d['label'], hoverinfo='text+x') for d in spurs_list]
+        plot_items = [go.Scatter(x=[d['x'], d['x']], y=[d['ymin'], d['ymax']], name=d['label'], line=dict(color=d['color']), hovertext=d['label'], hoverinfo='text+x') for d in spurs_list]
 
         plot = go.FigureWidget(plot_items)
         
@@ -461,10 +471,10 @@ class DDCWidgets:
         return plot
     
     def __update_plot(self):
-        spurs_list = [self.data.nyquist_up, self.data.nyquist_down, self.data.hd2, self.data.hd2_image, 
-                     self.data.hd3, self.data.hd3_image, self.data.pll_mix_up, self.data.pll_mix_up_image,
-                     self.data.pll_mix_down, self.data.pll_mix_down_image, self.data.rx_image, self.data.rx_alias,
-                    self.data.tis_spur, self.data.tis_spur_image, self.data.offset_spur, self.data.offset_spur_image]
+        spurs_list = [self.data.rx_alias, self.data.rx_image, self.data.nyquist_up, self.data.nyquist_down,
+                      self.data.hd2, self.data.hd2_image, self.data.hd3, self.data.hd3_image,
+                      self.data.pll_mix_up, self.data.pll_mix_up_image, self.data.pll_mix_down, self.data.pll_mix_down_image,
+                      self.data.tis_spur, self.data.tis_spur_image, self.data.offset_spur, self.data.offset_spur_image]
         
         with self._plot.batch_update():
             for i in range(len(spurs_list)):
@@ -612,11 +622,12 @@ class DUCWidgets:
         self.__update_plot()
         
     def __setup_plot(self):      
-        spurs_list = [self.data.nyquist_up, self.data.nyquist_down, self.data.hd2, self.data.hd2_image, 
-                     self.data.hd3, self.data.hd3_image, self.data.pll_mix_up, self.data.pll_mix_up_image,
-                     self.data.pll_mix_down, self.data.pll_mix_down_image, self.data.fund, self.data.fimag]
+        spurs_list = [self.data.fund, self.data.fimag,
+                      self.data.nyquist_up, self.data.nyquist_down, self.data.hd2, self.data.hd2_image,
+                      self.data.hd3, self.data.hd3_image, self.data.pll_mix_up, self.data.pll_mix_up_image,
+                      self.data.pll_mix_down, self.data.pll_mix_down_image]
 
-        plot_items = [go.Scatter(x=[d['x'], d['x']], y=[d['ymin'], d['ymax']], name=d['label'], hovertext=d['label'], hoverinfo='text+x') for d in spurs_list]
+        plot_items = [go.Scatter(x=[d['x'], d['x']], y=[d['ymin'], d['ymax']], name=d['label'], line=dict(color=d['color']), hovertext=d['label'], hoverinfo='text+x') for d in spurs_list]
 
         plot = go.FigureWidget(plot_items)
         
@@ -633,9 +644,10 @@ class DUCWidgets:
         return plot
     
     def __update_plot(self):
-        spurs_list = [self.data.nyquist_up, self.data.nyquist_down, self.data.hd2, self.data.hd2_image, 
-                     self.data.hd3, self.data.hd3_image, self.data.pll_mix_up, self.data.pll_mix_up_image,
-                     self.data.pll_mix_down, self.data.pll_mix_down_image, self.data.fund, self.data.fimag]
+        spurs_list = [self.data.fund, self.data.fimag,
+                      self.data.nyquist_up, self.data.nyquist_down, self.data.hd2, self.data.hd2_image,
+                      self.data.hd3, self.data.hd3_image, self.data.pll_mix_up, self.data.pll_mix_up_image,
+                      self.data.pll_mix_down, self.data.pll_mix_down_image]
         
         with self._plot.batch_update():
             for i in range(len(spurs_list)):
