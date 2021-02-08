@@ -2,6 +2,9 @@ from ipywidgets import widgets
 import plotly.graph_objs as go
 from frequency_calc import FrequencyPlannerADC, FrequencyPlannerDAC, FrequencyPlannerDDC, FrequencyPlannerDUC
 
+plot_width = 1000
+plot_height = 550
+
 class ADCWidgets:
     def __init__(self):
         self.data = FrequencyPlannerADC()
@@ -135,8 +138,8 @@ class ADCWidgets:
             title={'text':"Digital Receiver Frequency Plan", 'x':0.46, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
             xaxis_title={'text':"Frequency (MHz)"},
             yaxis_title={'text':"Harmonic No."},
-            width=900,
-            height=500,
+            width=plot_width,
+            height=plot_height,
         )
         
         return plot
@@ -270,8 +273,8 @@ class DACWidgets:
             title={'text':"Digital Transmitter Frequency Plan", 'x':0.45, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
             xaxis_title={'text':"Frequency (MHz)"},
             yaxis_title={'text':"Harmonic No."},
-            width=900,
-            height=500
+            width=plot_width,
+            height=plot_height
         )
 
         return plot
@@ -462,11 +465,11 @@ class DDCWidgets:
             title={'text':"Digital Down Converter (DDC)", 'x':0.45, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
             xaxis_title={'text':"Frequency (MHz)"},
             yaxis_title={'text':"Amplitude (dB)"},
-            width=900,
-            height=500
+            width=plot_width,
+            height=plot_height
         )
         
-        plot.add_hline(y=0, line=dict(color='grey'))
+#         plot.add_hline(y=0, line=dict(color='grey'))
         
         return plot
     
@@ -635,11 +638,11 @@ class DUCWidgets:
             title={'text':"Digital Up Converter (DUC)", 'x':0.46, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
             xaxis_title={'text':"Frequency (MHz)"},
             yaxis_title={'text':"Amplitude (dB)"},
-            width=900,
-            height=500
+            width=plot_width,
+            height=plot_height
         )
         
-        plot.add_hline(y=0, line=dict(color='grey'))
+#         plot.add_hline(y=0, line=dict(color='grey'))
         
         return plot
     
