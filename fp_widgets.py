@@ -132,7 +132,7 @@ class ADCWidgets:
         plot = go.FigureWidget(plot_items)
         
         plot.update_layout(
-            title={'text':"Digital Receiver Frequency Plan", 'x':0.5, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
+            title={'text':"Digital Receiver Frequency Plan", 'x':0.46, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
             xaxis_title={'text':"Frequency (MHz)"},
             yaxis_title={'text':"Harmonic No."},
             width=900,
@@ -267,7 +267,7 @@ class DACWidgets:
         plot = go.FigureWidget(plot_items)
         
         plot.update_layout(
-            title={'text':"Digital Transmitter Frequency Plan", 'x':0.5, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
+            title={'text':"Digital Transmitter Frequency Plan", 'x':0.45, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
             xaxis_title={'text':"Frequency (MHz)"},
             yaxis_title={'text':"Harmonic No."},
             width=900,
@@ -459,7 +459,7 @@ class DDCWidgets:
         plot = go.FigureWidget(plot_items)
         
         plot.update_layout(
-            title={'text':"Digital Down Converter (DDC)", 'x':0.5, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
+            title={'text':"Digital Down Converter (DDC)", 'x':0.45, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
             xaxis_title={'text':"Frequency (MHz)"},
             yaxis_title={'text':"Amplitude (dB)"},
             width=900,
@@ -632,7 +632,7 @@ class DUCWidgets:
         plot = go.FigureWidget(plot_items)
         
         plot.update_layout(
-            title={'text':"Digital Up Converter (DUC)", 'x':0.5, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
+            title={'text':"Digital Up Converter (DUC)", 'x':0.46, 'y':0.9, 'xanchor':'center', 'yanchor':'top'},
             xaxis_title={'text':"Frequency (MHz)"},
             yaxis_title={'text':"Amplitude (dB)"},
             width=900,
