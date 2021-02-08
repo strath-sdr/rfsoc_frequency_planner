@@ -557,7 +557,7 @@ class DUCWidgets:
         self.pdb_slider.observe(self.__update_pdb, 'value')
         
         self.mix_mode = widgets.Label(self.data.mix_mode, layout=widgets.Layout(flex='auto'))
-        self.eff_fs = widgets.Label(("Effective Fs: " + str(self.data.effective_fs)), layout=widgets.Layout(flex='auto'))
+        self.eff_fs = widgets.Label(("Effective Fs: " + str(self.data.effective_fs)) + " MSPS", layout=widgets.Layout(flex='auto'))
         
         self.param_controls = widgets.Accordion([widgets.VBox([
             widgets.HBox([self.fs_label, self.fs_slider, self.fs_entry, self.fs_units]),
@@ -658,4 +658,4 @@ class DUCWidgets:
                 self._plot.data[i].y = [spurs_list[i]['ymin'], spurs_list[i]['ymax']]
                 
         self.mix_mode.value = self.data.mix_mode
-        self.eff_fs.value = ("Effective Fs: " + str(self.data.effective_fs))
+        self.eff_fs.value = ("Effective Fs: " + str(self.data.effective_fs) + " MSPS")
