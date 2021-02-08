@@ -44,7 +44,7 @@ class ADCWidgets:
         
         self.il_label  = widgets.Label("IL Factor", layout=self._label_layout)
         self.il_blank = widgets.Label("", layout=self._slider_layout)
-        self.il_entry  = widgets.Dropdown(options=["4","8"],value="8", layout=self._entry_layout)
+        self.il_entry  = widgets.Dropdown(options=["4","8"],value=str(self.data.il_factor), layout=self._entry_layout)
         self.il_units  = widgets.Label("X", layout=self._units_layout)
         self.il_entry.observe(self.__update_il, 'value')
         
@@ -316,13 +316,13 @@ class DDCWidgets:
         
         self.dec_label  = widgets.Label("Decimation", layout=self._label_layout)
         self.dec_blank = widgets.Label("", layout=self._slider_layout)
-        self.dec_entry  = widgets.Dropdown(options=["1", "2","4","8"],value="1", layout=self._entry_layout)
+        self.dec_entry  = widgets.Dropdown(options=["1", "2","4","8"],value=str(self.data.dec), layout=self._entry_layout)
         self.dec_units  = widgets.Label("X", layout=self._units_layout)
         self.dec_entry.observe(self.__update_dec, 'value')
         
         self.il_label  = widgets.Label("IL Factor", layout=self._label_layout)
         self.il_blank = widgets.Label("", layout=self._slider_layout)
-        self.il_entry  = widgets.Dropdown(options=["4","8"],value="8", layout=self._entry_layout)
+        self.il_entry  = widgets.Dropdown(options=["4","8"],value=str(self.data.il_factor), layout=self._entry_layout)
         self.il_units  = widgets.Label("X", layout=self._units_layout)
         self.il_entry.observe(self.__update_il, 'value')
         
@@ -522,7 +522,7 @@ class DUCWidgets:
         
         self.itrp_label  = widgets.Label("Interpolation", layout=self._label_layout)
         self.itrp_blank = widgets.Label("", layout=self._slider_layout)
-        self.itrp_entry  = widgets.Dropdown(options=["1", "2","4","8"],value="1", layout=self._entry_layout)
+        self.itrp_entry  = widgets.Dropdown(options=["1", "2","4","8"],value=str(self.data.interp_rate), layout=self._entry_layout)
         self.itrp_units  = widgets.Label("X", layout=self._units_layout)
         self.itrp_entry.observe(self.__update_itrp, 'value')
         

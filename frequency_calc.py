@@ -2,7 +2,7 @@ import numpy as np
 
 class FrequencyPlannerADC:
 
-    def __init__(self, fs_rf=4092, fc=1175.42, fs_bw=10.23, pll_ref=409.2, il_factor=8):
+    def __init__(self, fs_rf=3800.0, fc=1800.0, fs_bw=20.0, pll_ref=409.2, il_factor=8):
         self.fs_rf = fs_rf
         self.fc = fc
         self.fs_bw = fs_bw
@@ -345,7 +345,7 @@ class FrequencyPlannerADC:
 
 class FrequencyPlannerDAC:
     
-    def __init__(self, fs_rf=4092, fc=1175.42, fs_bw=10.23, pll_ref=409.2):
+    def __init__(self, fs_rf=3800, fc=1800, fs_bw=20.0, pll_ref=409.2):
         self.fs_rf = fs_rf
         self.fc = fc
         self.fs_bw = fs_bw
@@ -543,7 +543,7 @@ class FrequencyPlannerDAC:
         return [init_dict] + dict_list
 
 class FrequencyPlannerDDC:
-    def __init__(self, fs_rf=4096, il_factor=8, fc=1024, dec=1, nco=100, hd2_db=70, hd3_db=70, tis_spur_db=85, off_spur_db=82, pll_mix_db=70, pll_ref=500, nsd_db=-154):
+    def __init__(self, fs_rf=3800, il_factor=8, fc=1800, dec=1, nco=1800, hd2_db=70, hd3_db=70, tis_spur_db=85, off_spur_db=82, pll_mix_db=70, pll_ref=409.2, nsd_db=-154):
         self.fs_rf = fs_rf
         self.il_factor = il_factor
         self.fc = fc
@@ -706,7 +706,7 @@ class FrequencyPlannerDDC:
         
         if il_factor > 1: #BE18
             if (fs_rf/2 - alias_fs) % fs_rf >= fs_rf/2:
-                alias_fs_spur = fs_rf - ((fs_rf/2-alias_fs) % fs_rf),
+                alias_fs_spur = fs_rf - ((fs_rf/2-alias_fs) % fs_rf)
             else:
                 alias_fs_spur = (fs_rf/2-alias_fs) % fs_rf
         else:
@@ -741,7 +741,7 @@ class FrequencyPlannerDDC:
         
         if il_factor > 1:
             if (fs_rf/2 - alias_fs) % fs_rf >= fs_rf/2:
-                alias_fs_spur = fs_rf - ((fs_rf/2-alias_fs) % fs_rf),
+                alias_fs_spur = fs_rf - ((fs_rf/2-alias_fs) % fs_rf)
             else:
                 alias_fs_spur = (fs_rf/2-alias_fs) % fs_rf
         else:
@@ -845,7 +845,7 @@ class FrequencyPlannerDDC:
         return {'label':'Nyquist 2', 'x':ax_x, 'ymin':self.__noisefloor(), 'ymax':ax_y, 'color':'#494949', 'linestyle':'dashed'}
 
 class FrequencyPlannerDUC:
-    def __init__(self, fs_rf=4096, fc=1024, nco=100, interp_rate=1, inv_sinc=True, hd2_db=65, hd3_db=75, pll_db=72, pll_ref=500):
+    def __init__(self, fs_rf=3800, fc=1800, nco=1800, interp_rate=1, inv_sinc=True, hd2_db=65, hd3_db=75, pll_db=72, pll_ref=409.2):
         self.fs_rf = fs_rf
         self.fc = fc
         self.nco = nco
