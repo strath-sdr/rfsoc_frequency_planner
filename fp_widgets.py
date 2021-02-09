@@ -330,7 +330,7 @@ class DDCWidgets:
         self.il_entry.observe(self.__update_il, 'value')
         
         self.nco_label  = widgets.Label("NCO", layout=self._label_layout)
-        self.nco_slider = widgets.FloatSlider(value=self.data.nco, min=0, max=4096, step=0.01, readout=False, layout=self._slider_layout)
+        self.nco_slider = widgets.FloatSlider(value=self.data.nco, min=-4096, max=4096, step=0.01, readout=False, layout=self._slider_layout)
         self.nco_entry  = widgets.BoundedFloatText(value=self.nco_slider.value, min=self.nco_slider.min, max=self.nco_slider.max, step=0.01, continuous_update=False, layout=self._entry_layout)
         self.nco_units  = widgets.Label("MHz", layout=self._units_layout)
         widgets.jslink((self.nco_slider, 'value'), (self.nco_entry, 'value'))
@@ -510,7 +510,7 @@ class DUCWidgets:
         self.fc_slider.observe(self.__update_fc, 'value')
         
         self.nco_label  = widgets.Label("NCO", layout=self._label_layout)
-        self.nco_slider = widgets.FloatSlider(value=self.data.nco, min=0, max=4096, step=0.01, readout=False, layout=self._slider_layout)
+        self.nco_slider = widgets.FloatSlider(value=self.data.nco, min=-4096, max=4096, step=0.01, readout=False, layout=self._slider_layout)
         self.nco_entry  = widgets.BoundedFloatText(value=self.nco_slider.value, min=self.nco_slider.min, max=self.nco_slider.max, step=0.01, continuous_update=False, layout=self._entry_layout)
         self.nco_units  = widgets.Label("MHz", layout=self._units_layout)
         widgets.jslink((self.nco_slider, 'value'), (self.nco_entry, 'value'))

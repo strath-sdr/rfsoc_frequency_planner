@@ -571,7 +571,7 @@ class FrequencyPlannerDDC:
         alias_fs = (fs_rf - (fc % fs_rf)) if ((fc % fs_rf) >= fs_rf/2) else (fc % fs_rf) #BE16
         nco_shift = alias_fs + nco #BH16
         
-        ax_x = (nco_shift - (nco_shift - fs_rf/dec/2)//(fs_rf/dec) * (fs_rf/dec)) if nco_shift < 0 else (nco_shift - (nco_shift + fs_rf/dec/2)//(fs_rf/dec)*(fs_rf/dec)) #BK16
+        ax_x = (nco_shift - int((nco_shift - fs_rf/dec/2)/(fs_rf/dec)) * (fs_rf/dec)) if nco_shift < 0 else (nco_shift - int((nco_shift + fs_rf/dec/2)/(fs_rf/dec))*(fs_rf/dec)) #BK16
         ax_y = 0
         
         return {'label':'Fc', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#5a82ca', 'linestyle':'solid'}
@@ -587,7 +587,7 @@ class FrequencyPlannerDDC:
         image_fs = fs_rf - alias_fs #BF16
         nco_shift = image_fs + nco #BI16
         
-        ax_x = (nco_shift - ((nco_shift - fs_rf/dec/2)//(fs_rf/dec) * fs_rf/dec)) if (nco_shift < 0) else (nco_shift - ((nco_shift + fs_rf/dec/2)//(fs_rf/dec) * fs_rf/dec)) #BL16
+        ax_x = (nco_shift - int((nco_shift - fs_rf/dec/2)/(fs_rf/dec)) * (fs_rf/dec)) if nco_shift < 0 else (nco_shift - int((nco_shift + fs_rf/dec/2)/(fs_rf/dec))*(fs_rf/dec)) #BL16
         ax_y = 0
         
         return {'label':'Fc Image', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#c46728', 'linestyle':'solid'}
@@ -601,7 +601,7 @@ class FrequencyPlannerDDC:
         alias_fs = (fs_rf - (hd_num*fc % fs_rf)) if (hd_num*fc % fs_rf >= fs_rf/2) else (hd_num*fc % fs_rf) #BE21
         nco_shift = alias_fs + nco #BH21
         
-        ax_x = (nco_shift - (nco_shift - fs_rf/dec/2)//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift < 0) else (nco_shift - (nco_shift + fs_rf/dec/2)//(fs_rf/dec) * (fs_rf/dec))
+        ax_x = (nco_shift - int((nco_shift - fs_rf/dec/2)/(fs_rf/dec)) * (fs_rf/dec)) if nco_shift < 0 else (nco_shift - int((nco_shift + fs_rf/dec/2)/(fs_rf/dec))*(fs_rf/dec)) 
         
         return ax_x
     
@@ -615,7 +615,7 @@ class FrequencyPlannerDDC:
         image_fs = fs_rf - alias_fs
         nco_shift = image_fs + nco
         
-        ax_x = (nco_shift - (nco_shift - fs_rf/dec/2)//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift < 0) else (nco_shift - (nco_shift + fs_rf/dec/2)//(fs_rf/dec) * (fs_rf/dec))
+        ax_x = (nco_shift - int((nco_shift - fs_rf/dec/2)/(fs_rf/dec)) * (fs_rf/dec)) if nco_shift < 0 else (nco_shift - int((nco_shift + fs_rf/dec/2)/(fs_rf/dec))*(fs_rf/dec)) 
         
         return ax_x
     
@@ -660,9 +660,9 @@ class FrequencyPlannerDDC:
         
         if il_factor==4 or il_factor==8:
             if nco_shift<0:
-                ax_x = nco_shift-((nco_shift-fs_rf/dec/2)//(fs_rf/dec)*(fs_rf/dec))
+                ax_x = nco_shift-(int((nco_shift-fs_rf/dec/2)/(fs_rf/dec))*(fs_rf/dec))
             else:
-                ax_x = nco_shift-((nco_shift+fs_rf/dec/2)//(fs_rf/dec)*fs_rf/dec)
+                ax_x = nco_shift-(int((nco_shift+fs_rf/dec/2)/(fs_rf/dec))*fs_rf/dec)
         else: 
             ax_x = -fs_rf/dec/2
             
@@ -685,9 +685,9 @@ class FrequencyPlannerDDC:
         
         if il_factor==4 or il_factor==8:
             if nco_shift<0:
-                ax_x = nco_shift-((nco_shift-fs_rf/dec/2)//(fs_rf/dec)*(fs_rf/dec))
+                ax_x = nco_shift-(int((nco_shift-fs_rf/dec/2)/(fs_rf/dec))*(fs_rf/dec))
             else:
-                ax_x = nco_shift-((nco_shift+fs_rf/dec/2)//(fs_rf/dec)*fs_rf/dec)
+                ax_x = nco_shift-(int((nco_shift+fs_rf/dec/2)/(fs_rf/dec))*fs_rf/dec)
         else: 
             ax_x = -fs_rf/dec/2
             
@@ -719,10 +719,10 @@ class FrequencyPlannerDDC:
         ax_y = -self.tis_spur_db
         
         if il_factor>1:
-            if nco_shift < 0:
-                ax_x = nco_shift - ((nco_shift-fs_rf/dec/2)//(fs_rf/dec)*(fs_rf/dec))
+            if nco_shift<0:
+                ax_x = nco_shift-(int((nco_shift-fs_rf/dec/2)/(fs_rf/dec))*(fs_rf/dec))
             else:
-                ax_x = nco_shift - ((nco_shift+fs_rf/dec/2)//(fs_rf/dec)*(fs_rf/dec))
+                ax_x = nco_shift-(int((nco_shift+fs_rf/dec/2)/(fs_rf/dec))*fs_rf/dec)
         else:
             ax_x = -fs_rf/dec/2
             
@@ -756,10 +756,10 @@ class FrequencyPlannerDDC:
         ax_y = -self.tis_spur_db
         
         if il_factor>1:
-            if nco_shift < 0:
-                ax_x = nco_shift - ((nco_shift-fs_rf/dec/2)//(fs_rf/dec)*(fs_rf/dec))
+            if nco_shift<0:
+                ax_x = nco_shift-(int((nco_shift-fs_rf/dec/2)/(fs_rf/dec))*(fs_rf/dec))
             else:
-                ax_x = nco_shift - ((nco_shift+fs_rf/dec/2)//(fs_rf/dec)*(fs_rf/dec))
+                ax_x = nco_shift-(int((nco_shift+fs_rf/dec/2)/(fs_rf/dec))*fs_rf/dec)
         else:
             ax_x = -fs_rf/dec/2
             
@@ -776,7 +776,7 @@ class FrequencyPlannerDDC:
         fs_alias = (fs_rf - (fc+pll_ref)%(fs_rf)) if ((fc+pll_ref)%(fs_rf) >= (fs_rf/2)) else ((fc+pll_ref) % (fs_rf)) #BE35
         nco_shift = fs_alias + nco #BH35
         
-        ax_x = (nco_shift - (nco_shift-(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - (nco_shift+(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) #BK35
+        ax_x = (nco_shift - int((nco_shift-(fs_rf/dec/2))/(fs_rf/dec)) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - int((nco_shift+(fs_rf/dec/2))/(fs_rf/dec)) * (fs_rf/dec)) #BK35
         ax_y = -self.pll_mix_db
         
         return {'label':'PLL Mix Up', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#CB9900', 'linestyle':'solid'}
@@ -793,7 +793,7 @@ class FrequencyPlannerDDC:
         fs_image = fs_rf - fs_alias #BF35
         nco_shift = fs_image + nco #BI35
         
-        ax_x = (nco_shift - (nco_shift-(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - (nco_shift+(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) #BK35
+        ax_x = (nco_shift - int((nco_shift-(fs_rf/dec/2))/(fs_rf/dec)) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - int((nco_shift+(fs_rf/dec/2))/(fs_rf/dec)) * (fs_rf/dec)) #BK35
         ax_y = -self.pll_mix_db
         
         return {'label':'PLL Mix Up Image', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#b1bcdf', 'linestyle':'#0906D9'}
@@ -809,7 +809,7 @@ class FrequencyPlannerDDC:
         fs_alias = (fs_rf - (fc-pll_ref)%(fs_rf)) if ((fc-pll_ref)%(fs_rf) >= (fs_rf/2)) else ((fc-pll_ref) % (fs_rf)) #BE36
         nco_shift = fs_alias + nco #BH36
         
-        ax_x = (nco_shift - (nco_shift-(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - (nco_shift+(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) #BK35
+        ax_x = (nco_shift - int((nco_shift-(fs_rf/dec/2))/(fs_rf/dec)) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - int((nco_shift+(fs_rf/dec/2))/(fs_rf/dec)) * (fs_rf/dec)) #BK35
         ax_y = -self.pll_mix_db
         
         return {'label':'PLL Mix Down', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#327dc1', 'linestyle':'solid'}
@@ -826,7 +826,7 @@ class FrequencyPlannerDDC:
         fs_image = fs_rf - fs_alias #BF35
         nco_shift = fs_image + nco #BH36
         
-        ax_x = (nco_shift - (nco_shift-(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - (nco_shift+(fs_rf/dec/2))//(fs_rf/dec) * (fs_rf/dec)) #BK35
+        ax_x = (nco_shift - int((nco_shift-(fs_rf/dec/2))/(fs_rf/dec)) * (fs_rf/dec)) if (nco_shift<0) else (nco_shift - int((nco_shift+(fs_rf/dec/2))/(fs_rf/dec)) * (fs_rf/dec)) #BK35
         ax_y = -self.pll_mix_db
         
         return {'label':'PLL Mix Down Image', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#f2b7a3', 'linestyle':'solid'}
