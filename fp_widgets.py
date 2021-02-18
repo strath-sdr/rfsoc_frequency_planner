@@ -32,14 +32,14 @@ class ADCWidgets:
         self.fc_slider.observe(self.__update_fc, 'value')
         
         self.bw_label  = widgets.Label("Bandwidth", layout=self._label_layout)
-        self.bw_slider = widgets.FloatSlider(value=self.data.fs_bw, min=0.0, max=500.0, step=0.01, readout=False, layout=self._slider_layout)
+        self.bw_slider = widgets.FloatSlider(value=self.data.fs_bw, min=0.0, max=self.fs_slider.value/2, step=0.01, readout=False, layout=self._slider_layout)
         self.bw_entry  = widgets.BoundedFloatText(value=self.bw_slider.value, min=self.bw_slider.min, max=self.bw_slider.max, step=0.01, continuous_update=False, layout=self._entry_layout)
         self.bw_units  = widgets.Label("MHz", layout=self._units_layout)
         widgets.jslink((self.bw_slider, 'value'), (self.bw_entry, 'value'))
         self.bw_slider.observe(self.__update_bw, 'value')
         
         self.pll_label  = widgets.Label("PLL Ref Clk", layout=self._label_layout)
-        self.pll_slider = widgets.FloatSlider(value=self.data.pll_ref, min=102.5, max=614.0, step=0.01, readout=False, layout=self._slider_layout)
+        self.pll_slider = widgets.FloatSlider(value=self.data.pll_ref, min=102.40, max=615.0, step=0.01, readout=False, layout=self._slider_layout)
         self.pll_entry  = widgets.BoundedFloatText(value=self.pll_slider.value, min=self.pll_slider.min, max=self.pll_slider.max, step=0.01, continuous_update=False, layout=self._entry_layout)
         self.pll_units  = widgets.Label("MHz", layout=self._units_layout)
         widgets.jslink((self.pll_slider, 'value'), (self.pll_entry, 'value'))
@@ -72,6 +72,8 @@ class ADCWidgets:
         
     def __update_fs(self, change):
         self.data.fs_rf = change['new']
+        self.bw_slider.max = change['new']/2
+        self.bw_entry.max = change['new']/2
         self.__update_plot()
         
     def __update_fc(self, change):

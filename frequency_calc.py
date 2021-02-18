@@ -335,10 +335,19 @@ class FrequencyPlannerADC:
     
     @property
     def calibration_mode(self):
-        fs_rf = self.fs_rf
+        nyq = self.fs_rf/2
         fc = self.fc
         
-        if ((fs_rf/2*0.7 < fc) and (fc < fs_rf/2*1.3)) or ((fs_rf/2*3-0.3*fs_rf/2 < fc) and (fc < fs_rf/2*3+0.3*fs_rf/2)) or ((fs_rf/2*5-0.3*fs_rf/2 < fc) and (fc < fs_rf/2*5+0.3*fs_rf/2)) or ((fs_rf/2*7-0.3*fs_rf/2 < fc) and (fc < fs_rf/2*7+0.3*fs_rf/2)) or ((fs_rf/2*9+0.3*fs_rf/2 < fc) and (fc < fs_rf/2*9+0.3*fs_rf/2)):
+        if\
+                ((nyq*1-0.3*nyq) < fc < (nyq*1+0.3*nyq))\
+                or\
+                ((nyq*3-0.3*nyq) < fc < (nyq*3+0.3*nyq))\
+                or\
+                ((nyq*5-0.3*nyq) < fc < (nyq*5+0.3*nyq))\
+                or\
+                ((nyq*7-0.3*nyq) < fc < (nyq*7+0.3*nyq))\
+                or\
+                ((nyq*9-0.3*nyq) < fc < (nyq*9+0.3*nyq)):
             return "Calibration Mode: Mode 1"
         else:
             return "Calibration Mode: Mode 2"
