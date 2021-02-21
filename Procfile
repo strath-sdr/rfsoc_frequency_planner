@@ -1,1 +1,1 @@
-web: voila --port=$PORT --no-browser --enable_nbextensions=True rfsoc_frequency_planner.ipynb
+web: voila --port=$PORT --no-browser --enable_nbextensions=True heroku/voila_rfsoc_frequency_planner_heroku.ipynb

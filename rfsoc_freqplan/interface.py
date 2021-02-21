@@ -1,6 +1,10 @@
+__author__ = "Joshua Goldsmith"
+__organisation__ = "The Univeristy of Strathclyde"
+__support__ = "https://github.com/strath-sdr/rfsoc_frequency_planner"
+
 from ipywidgets import widgets
 import plotly.graph_objs as go
-from frequency_calc import FrequencyPlannerADC, FrequencyPlannerDAC, FrequencyPlannerDDC, FrequencyPlannerDUC
+from .calculation import FrequencyPlannerADC, FrequencyPlannerDAC, FrequencyPlannerDDC, FrequencyPlannerDUC
 
 plot_width = 1000
 plot_height = 550
@@ -18,7 +22,7 @@ class ADCWidgets:
         self._button_layout = widgets.Layout(width='87px', fontsize=12)
         
         self.fs_label  = widgets.Label("Fs", layout=self._label_layout)
-        self.fs_slider = widgets.FloatSlider(value=self.data.fs_rf, min=1000.0, max=5000, step=0.01, readout=False, layout=self._slider_layout)
+        self.fs_slider = widgets.FloatSlider(value=self.data.fs_rf, min=1000.0, max=4096.0, step=0.01, readout=False, layout=self._slider_layout)
         self.fs_entry  = widgets.BoundedFloatText(value=self.fs_slider.value, min=self.fs_slider.min, max=self.fs_slider.max, step=0.01, continuous_update=False, layout=self._entry_layout)
         self.fs_units  = widgets.Label("MSPS", layout=self._units_layout)
         widgets.jslink((self.fs_slider, 'value'), (self.fs_entry, 'value'))
@@ -164,7 +168,7 @@ class DACWidgets:
         self._button_layout = widgets.Layout(width='87px', fontsize=12)
         
         self.fs_label  = widgets.Label("Fs", layout=self._label_layout)
-        self.fs_slider = widgets.FloatSlider(value=self.data.fs_rf, min=1000.0, max=5000, step=0.01, readout=False, layout=self._slider_layout)
+        self.fs_slider = widgets.FloatSlider(value=self.data.fs_rf, min=1000.0, max=6554.0, step=0.01, readout=False, layout=self._slider_layout)
         self.fs_entry  = widgets.BoundedFloatText(value=self.fs_slider.value, min=self.fs_slider.min, max=self.fs_slider.max, step=0.01, continuous_update=False, layout=self._entry_layout)
         self.fs_units  = widgets.Label("MSPS", layout=self._units_layout)
         widgets.jslink((self.fs_slider, 'value'), (self.fs_entry, 'value'))
@@ -178,7 +182,7 @@ class DACWidgets:
         self.fc_slider.observe(self.__update_fc, 'value')
         
         self.bw_label  = widgets.Label("Bandwidth", layout=self._label_layout)
-        self.bw_slider = widgets.FloatSlider(value=self.data.fs_bw, min=0.0, max=500.0, step=0.01, readout=False, layout=self._slider_layout)
+        self.bw_slider = widgets.FloatSlider(value=self.data.fs_bw, min=0.0, max=self.fs_slider.value/2, step=0.01, readout=False, layout=self._slider_layout)
         self.bw_entry  = widgets.BoundedFloatText(value=self.bw_slider.value, min=self.bw_slider.min, max=self.bw_slider.max, step=0.01, continuous_update=False, layout=self._entry_layout)
         self.bw_units  = widgets.Label("MHz", layout=self._units_layout)
         widgets.jslink((self.bw_slider, 'value'), (self.bw_entry, 'value'))
@@ -207,6 +211,8 @@ class DACWidgets:
         
     def __update_fs(self, change):
         self.data.fs_rf = change['new']
+        self.bw_slider.max = change['new']/2
+        self.bw_entry.max = change['new']/2
         self.__update_plot()
         
     def __update_fc(self, change):
@@ -352,14 +358,14 @@ class DDCWidgets:
         widgets.jslink((self.hd3_slider, 'value'), (self.hd3_entry, 'value'))
         self.hd3_slider.observe(self.__update_hd3, 'value')
         
-        self.tis_label  = widgets.Label("TI Spur", layout=self._label_layout)
+        self.tis_label  = widgets.Label("GTIS", layout=self._label_layout)
         self.tis_slider = widgets.FloatSlider(value=self.data.tis_spur_db, min=0, max=200, step=0.01, readout=False, layout=self._slider_layout)
         self.tis_entry  = widgets.BoundedFloatText(value=self.tis_slider.value, min=self.tis_slider.min, max=self.tis_slider.max, step=0.01, continuous_update=False, layout=self._entry_layout)
         self.tis_units  = widgets.Label("dB", layout=self._units_layout)
         widgets.jslink((self.tis_slider, 'value'), (self.tis_entry, 'value'))
         self.tis_slider.observe(self.__update_tis, 'value')
         
-        self.oss_label  = widgets.Label("Offset Spur", layout=self._label_layout)
+        self.oss_label  = widgets.Label("OIS", layout=self._label_layout)
         self.oss_slider = widgets.FloatSlider(value=self.data.off_spur_db, min=0, max=200, step=0.01, readout=False, layout=self._slider_layout)
         self.oss_entry  = widgets.BoundedFloatText(value=self.oss_slider.value, min=self.oss_slider.min, max=self.oss_slider.max, step=0.01, continuous_update=False, layout=self._entry_layout)
         self.oss_units  = widgets.Label("dB", layout=self._units_layout)

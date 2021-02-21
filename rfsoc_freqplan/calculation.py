@@ -1,3 +1,7 @@
+__author__ = "Joshua Goldsmith"
+__organisation__ = "The Univeristy of Strathclyde"
+__support__ = "https://github.com/strath-sdr/rfsoc_frequency_planner"
+
 import numpy as np
 
 class FrequencyPlannerADC:
@@ -675,7 +679,7 @@ class FrequencyPlannerDDC:
         else: 
             ax_x = -fs_rf/dec/2
             
-        return {'label':'Offset Spur', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#669645', 'linestyle':'solid'}
+        return {'label':'OIS', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#669645', 'linestyle':'solid'}
     
     @property
     def offset_spur_image(self):
@@ -700,7 +704,7 @@ class FrequencyPlannerDDC:
         else: 
             ax_x = -fs_rf/dec/2
             
-        return {'label':'Offset Spur Image', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#ed7d31', 'linestyle':'solid'}
+        return {'label':'OIS Image', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#ed7d31', 'linestyle':'solid'}
     
     @property
     def tis_spur(self):
@@ -735,7 +739,7 @@ class FrequencyPlannerDDC:
         else:
             ax_x = -fs_rf/dec/2
             
-        return {'label':'TI Spur', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#a5a5a5', 'linestyle':'solid'}
+        return {'label':'GTIS', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#a5a5a5', 'linestyle':'solid'}
     
     @property
     def tis_spur_image(self):
@@ -772,7 +776,7 @@ class FrequencyPlannerDDC:
         else:
             ax_x = -fs_rf/dec/2
             
-        return {'label':'TI Spur Image', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#ffc000', 'linestyle':'solid'}
+        return {'label':'GTIS Image', 'x':ax_x, 'ymin':self.noisefloor, 'ymax':ax_y, 'color':'#ffc000', 'linestyle':'solid'}
     
     @property
     def pll_mix_up(self):
