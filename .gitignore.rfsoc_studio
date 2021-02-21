@@ -1,0 +1,6 @@
+runtime.txt
+Procfile
+heroku/
+
+__pycache__
+.ipynb_checkpoints/
