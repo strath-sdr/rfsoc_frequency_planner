@@ -8,9 +8,7 @@ import ipywidgets as widgets
 class FrequencyPlannerApplication:
     def __init__(self):
         with open('info.html', 'r') as f:
-            html_text = f.read()
-
-        info = widgets.HTML(value=html_text)
+            info = widgets.HTML(value=f.read())
 
         adc = ADCWidgets().layout
         dac = DACWidgets().layout
