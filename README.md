@@ -1,11 +1,13 @@
 # RFSoC Frequency Planner
-This repository is compatible with [PYNQ image v2.6](https://github.com/Xilinx/PYNQ/releases) for the ZCU111 and RFSoC2x2.
+This RFSoC Frequency Planning tool is derived from an original tool released by Xilinx for their Zynq Ultrascale+ RFSoC line of devices. The original tool, and more information about the RFSoC can be found [here](https://www.xilinx.com/products/silicon-devices/soc/rfsoc.html).
+
+This repository consists of two branches. The ```main``` branch is used for the standalone web application that is hosted on [Heroku](https://rfsoc-frequency-planner.herokuapp.com/). The ```rfsoc_studio``` branch is compatible with the [PYNQ image v2.6](https://github.com/Xilinx/PYNQ/releases) for the ZCU111 and RFSoC2x2 development boards.
 
 <p align="center">
   <img src="./demonstration.gif" width="884" height="387" />
 <p/>
 
-## Quick Start
+## PYNQ Quick Start
 All that is required to install the RFSoC frequency planner on to your development board is running a simple line of code in the command line. **However, you will need to connect your board to the internet.** Follow the instructions below to install the frequency planner now.
 * Power on your RFSoC2x2 or ZCU111 development board with an SD Card containing a fresh PYNQ v2.6 image.
 * Navigate to Jupyter Labs by opening a browser (preferably Chrome) and connecting to `http://<board_ip_address>:9090/lab`.

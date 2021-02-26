@@ -1,9 +1,72 @@
 <html>
+
 <style>a{color: #3366BB;}</style>
+<style>h3{padding:0px; margin:0px }</style>
+<style>
+      table {
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        padding: 5px;
+        text-align: left;
+      }
+    </style>
+
 <body>
-	<p>This is a Python port of the Frequency Planning Tool created by Xilinx for their Zynq Ultrscale+ RFSoC line of devices.</p>
-	<p>The original tool, and more information about the RFSoC can be found <a href=https://www.xilinx.com/products/silicon-devices/soc/rfsoc.html>here</a>.</p>
-	<p>Currently, this version of the tool only supports Gen1 devices</p>
-	<p>You can report any bugs or issues to <a href="mailto:joshua.goldsmith@strath.ac.uk">joshua.goldsmith@strath.ac.uk</a>.</p>
+
+<h3>Abbreviations and Acronyms</h3>
+
+<table border="1" width="auto">
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>Fc</strong></td>
+<td>Centre frequency</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fs</strong></td>
+<td>Sample Rate</td>
+</tr>
+<tr>
+<td><strong>GTIS</strong></td>
+<td>Gain/time interleaving spur</td>
+</tr>
+<tr>
+<td><strong>HD</strong></td>
+<td>Harmonic frequency</td>
+</tr>
+<tr>
+<td><strong>IL</strong></td>
+<td>Interleaving</td>
+</tr>
+<tr>
+<td><strong>NCO</strong></td>
+<td>Numerically Controlled Oscillator</td>
+</tr>
+<tr>
+<td>NSD</td>
+<td>Noise Spectral Density</td>
+</tr>
+<tr>
+<td><strong>OIS</strong></td>
+<td>Offset interleaving spur</td>
+</tr>
+<tr>
+<td><strong>PLL</strong></td>
+<td>Phase-Locked Loop</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<h3>Spur Amplitudes</h3>
+<p>Typical values for the spur amplitudes used in the DDC and DUC planners can be found in the RFSoC datasheet <a href="https://www.xilinx.com/support/documentation/data_sheets/ds926-zynq-ultrascale-plus-rfsoc.pdf">DS926</a>.</p>
+
 </body>
 </html>

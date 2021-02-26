@@ -58,4 +58,4 @@ setup(
     package_data={
         '': data_files,
     },
-    description="PYNQ example of an RFSoC Frequency Planner.")
+    description="RFSoC Frequency Planner.")
