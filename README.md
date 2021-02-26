@@ -1,3 +1,5 @@
+<img src="./strath_banner.png" width="auto">
+
 # RFSoC Frequency Planner
 This RFSoC Frequency Planning tool is derived from an original tool released by Xilinx for their Zynq Ultrascale+ RFSoC line of devices. The original tool, and more information about the RFSoC can be found [here](https://www.xilinx.com/products/silicon-devices/soc/rfsoc.html).
 
