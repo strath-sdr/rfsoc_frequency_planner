@@ -94,7 +94,25 @@ class ADCWidgets:
         
     def __update_il(self, change):
         self.data.il_factor = int(change['new'])
-        self.__update_plot()
+
+        # remove fs/8 spurs when il factor != 8
+        with self._plot.batch_update():
+            if change['new'] == "4":
+                self._plot.data[7+4].visible = False
+                self._plot.data[8+4].visible = False
+                self._plot.data[15+4].visible = False
+                self._plot.data[16+4].visible = False
+                self._plot.data[17+4].visible = False
+                self._plot.data[18+4].visible = False
+            else:
+                self._plot.data[7+4].visible = True 
+                self._plot.data[8+4].visible = True
+                self._plot.data[15+4].visible = True
+                self._plot.data[16+4].visible = True
+                self._plot.data[17+4].visible = True
+                self._plot.data[18+4].visible = True
+                # only update when il factor changes from 4 to 8
+                self.__update_plot()
     
     def __update_plot(self):
         spurs_list = [self.data.hd2, self.data.hd3, self.data.hd4, self.data.hd5,
@@ -111,16 +129,12 @@ class ADCWidgets:
             self._plot.data[3].x = [self.data.nyquist['xmax'], self.data.nyquist['xmax']]
             
             for i in range(len(spurs_list)):
-                if (spurs_list[i]['xmin'] != 0) and (spurs_list[i]['xmax'] != 0):
-                    self._plot.data[i+4].x = [spurs_list[i]['xmin'], spurs_list[i]['xmax']]
-                    self._plot.data[i+4].visible = True
+                self._plot.data[i+4].x = [spurs_list[i]['xmin'], spurs_list[i]['xmax']]
                     
-                    if self.__intersection(spurs_list[i], self.data.rx_band):
-                        self._plot.data[i+4].line['color'] = 'red'
-                    else:
-                        self._plot.data[i+4].line['color'] = spurs_list[i]['color']
+                if self.__intersection(spurs_list[i], self.data.rx_band):
+                    self._plot.data[i+4].line['color'] = 'red'
                 else:
-                    self._plot.data[i+4].visible = False
+                    self._plot.data[i+4].line['color'] = spurs_list[i]['color']
                 
         self.calibration.value = self.data.calibration_mode
     

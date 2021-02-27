@@ -146,7 +146,7 @@ class FrequencyPlannerADC:
         
         ax_y = 0.8
         
-        if il_factor > 2:
+        if il_factor > 4:
             ax_x = [abs(fs_rf/8 + i) if ((fs_rf/8 + i) < fs_rf/2) else abs(fs_rf/8*7-i) for i in signal_f]
         else:
             ax_x = [i*0 for i in signal_f]
