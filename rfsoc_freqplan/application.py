@@ -4,11 +4,13 @@ __support__ = "https://github.com/strath-sdr/rfsoc_frequency_planner"
 
 from .interface import ADCWidgets, DACWidgets, DDCWidgets, DUCWidgets
 import ipywidgets as widgets
+from pkg_resources import resource_stream
 
 class FrequencyPlannerApplication:
     def __init__(self):
-        with open('info.html', 'r') as f:
-            info = widgets.HTML(value=f.read())
+        f = resource_stream('rfsoc_freqplan', 'info.html')
+        info = widgets.HTML(value=f.read())
+        f.close()
 
         adc = ADCWidgets().layout
         dac = DACWidgets().layout

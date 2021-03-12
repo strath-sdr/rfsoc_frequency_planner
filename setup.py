@@ -7,7 +7,7 @@ from setuptools import find_packages, setup
 # global variables
 package_name = 'rfsoc_freqplan'
 pip_name = 'rfsoc-freqplan'
-data_files = []
+data_files = ['info.html']
 
 # heroku setup
 if os.path.isfile('Procfile'):
