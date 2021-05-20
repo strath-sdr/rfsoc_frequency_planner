@@ -1,4 +1,4 @@
-<img src="./strath_banner.png" width="auto">
+<img src="./strath_banner.png" align="left">
 
 # RFSoC Frequency Planner
 This RFSoC Frequency Planning tool is derived from an original tool released by Xilinx for their Zynq Ultrascale+ RFSoC line of devices. The original tool, and more information about the RFSoC can be found [here](https://www.xilinx.com/products/silicon-devices/soc/rfsoc.html).
@@ -6,7 +6,7 @@ This RFSoC Frequency Planning tool is derived from an original tool released by 
 This repository consists of two branches. The ```main``` branch is used for the standalone web application that is hosted on [Heroku](https://rfsoc-frequency-planner.herokuapp.com/). The ```rfsoc_studio``` branch is compatible with the [PYNQ image v2.6](https://github.com/Xilinx/PYNQ/releases) for the ZCU111 and RFSoC2x2 development boards.
 
 <p align="center">
-  <img src="./demonstration.gif" width="884" height="387" />
+  <img src="./demonstration.gif"/>
 <p/>
 
 ## PYNQ Quick Start
