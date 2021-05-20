@@ -48,7 +48,7 @@ else:
 
 setup(
     name=package_name,
-    version='0.1',
+    version='0.1.1',
     install_requires=requirements,
     url='https://github.com/strath-sdr/rfsoc_frequency_planner',
     license='BSD 3-Clause License',
