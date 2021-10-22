@@ -17,7 +17,7 @@ if os.path.isfile('Procfile'):
 # Pynq setup
 else:
     # pynq variables
-    requirements = ['pynq>=2.6']
+    requirements = ['pynq>=2.7']
     board = os.environ['BOARD']
     repo_board_folder = f'boards/{board}/{package_name}'
     board_notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
@@ -48,7 +48,7 @@ else:
 
 setup(
     name=package_name,
-    version='0.1.1',
+    version='0.2.0',
     install_requires=requirements,
     url='https://github.com/strath-sdr/rfsoc_frequency_planner',
     license='BSD 3-Clause License',
