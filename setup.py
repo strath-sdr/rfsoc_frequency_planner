@@ -18,18 +18,8 @@ if os.path.isfile('Procfile'):
 else:
     # pynq variables
     requirements = ['pynq>=2.7']
-    board = os.environ['BOARD']
-    repo_board_folder = f'boards/{board}/{package_name}'
     board_notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
     board_project_dir = os.path.join(board_notebooks_dir, 'frequency-planner')
-    
-    # check whether board is supported
-    def check_env():
-        if not os.path.isdir(repo_board_folder):
-            raise ValueError("Board {} is not supported.".format(board))
-        if not os.path.isdir(board_notebooks_dir):
-            raise ValueError(
-                "Directory {} does not exist.".format(board_notebooks_dir))
             
     # check if the path already exists, delete if so
     def check_path():
@@ -38,17 +28,16 @@ else:
     
     # copy notebooks to jupyter home
     def copy_notebooks():
-        src_nb_dir = os.path.join(repo_board_folder, 'notebooks')
+        src_nb_dir = os.path.join('notebooks')
         dst_nb_dir = os.path.join(board_project_dir)
         copy_tree(src_nb_dir, dst_nb_dir)
         
-    check_env()
     check_path()
     copy_notebooks()
 
 setup(
     name=package_name,
-    version='0.2.0',
+    version='0.3.0',
     install_requires=requirements,
     url='https://github.com/strath-sdr/rfsoc_frequency_planner',
     license='BSD 3-Clause License',
