@@ -31,4 +31,4 @@ All that is required to install the RFSoC frequency planner on to your developme
 pip3 install git+https://github.com/strath-sdr/rfsoc_frequency_planner
 ```
 
-Once installation has complete you will find the Frequency Planner notebooks in the Jupyter workspace directory. The folder will be named 'frequency-planner'.
+Once installation has complete you will find the Frequency Planner notebooks in the Jupyter workspace directory. The folder will be named 'rfsoc-studio/frequency-planner'.
