@@ -19,7 +19,7 @@ else:
     # pynq variables
     requirements = ['pynq>=2.7']
     board_notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
-    board_project_dir = os.path.join(board_notebooks_dir, 'frequency-planner')
+    board_project_dir = os.path.join(board_notebooks_dir, 'rfsoc-studio', 'frequency-planner')
             
     # check if the path already exists, delete if so
     def check_path():
@@ -37,7 +37,7 @@ else:
 
 setup(
     name=package_name,
-    version='0.3.0',
+    version='0.3.1',
     install_requires=requirements,
     url='https://github.com/strath-sdr/rfsoc_frequency_planner',
     license='BSD 3-Clause License',
