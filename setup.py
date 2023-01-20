@@ -32,9 +32,12 @@ else:
             src_nb_dir = os.path.join('notebooks')
             dst_nb_dir = os.path.join(board_project_dir)
             copy_tree(src_nb_dir, dst_nb_dir)
-
+            
         check_path()
         copy_notebooks()
+        
+    else:
+        requirements = []
 
 setup(
     name=package_name,
