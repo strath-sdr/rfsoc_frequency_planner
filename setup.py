@@ -17,27 +17,28 @@ if os.path.isfile('Procfile'):
 # Pynq setup
 else:
     # pynq variables
-    requirements = ['pynq>=2.7']
-    board_notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
-    board_project_dir = os.path.join(board_notebooks_dir, 'rfsoc-studio', 'frequency-planner')
-            
-    # check if the path already exists, delete if so
-    def check_path():
-        if os.path.exists(board_project_dir):
-            shutil.rmtree(board_project_dir)
-    
-    # copy notebooks to jupyter home
-    def copy_notebooks():
-        src_nb_dir = os.path.join('notebooks')
-        dst_nb_dir = os.path.join(board_project_dir)
-        copy_tree(src_nb_dir, dst_nb_dir)
-        
-    check_path()
-    copy_notebooks()
+    if 'BOARD' in os.environ:
+        requirements = ['pynq>=2.7']
+        board_notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
+        board_project_dir = os.path.join(board_notebooks_dir, 'rfsoc-studio', 'frequency-planner')
+
+        # check if the path already exists, delete if so
+        def check_path():
+            if os.path.exists(board_project_dir):
+                shutil.rmtree(board_project_dir)
+
+        # copy notebooks to jupyter home
+        def copy_notebooks():
+            src_nb_dir = os.path.join('notebooks')
+            dst_nb_dir = os.path.join(board_project_dir)
+            copy_tree(src_nb_dir, dst_nb_dir)
+
+        check_path()
+        copy_notebooks()
 
 setup(
     name=package_name,
-    version='0.3.1',
+    version='0.3.2',
     install_requires=requirements,
     url='https://github.com/strath-sdr/rfsoc_frequency_planner',
     license='BSD 3-Clause License',
